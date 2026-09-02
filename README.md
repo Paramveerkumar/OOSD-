@@ -99,7 +99,6 @@ Topics covered:
 - Component Diagrams
 - Deployment Diagrams
 
-📄 **Study Material:** [Unit II](./Unit-2/)
 
 ---
 
