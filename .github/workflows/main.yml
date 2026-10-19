@@ -1,1 +1,62 @@
+// Operators and typecasting
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 17, b = 5;
+
+    // Arithmetic
+    cout << "a + b = " << a + b << endl;
+    cout << "a - b = " << a - b << endl;
+    cout << "a * b = " << a * b << endl;
+    cout << "a / b = " << a / b << "  (integer division)" << endl;
+    cout << "a % b = " << a % b << endl;
+    cout << "a / (double)b = " << a / static_cast<double>(b) << endl;
+
+    // Increment / decrement
+    int x = 5;
+    int oldValue = x++;                       // postfix: use the value, then increment
+    cout << "\nAfter 'oldValue = x++': oldValue = " << oldValue << ", x = " << x << endl;
+    int newValue = ++x;                       // prefix: increment, then use the value
+    cout << "After 'newValue = ++x': newValue = " << newValue << ", x = " << x << endl;
+
+    // Relational and logical
+    cout << "\n(a > b) = " << (a > b) << endl;
+    cout << "(a > b && b > 10) = " << (a > b && b > 10) << endl;
+    cout << "(a > b || b > 10) = " << (a > b || b > 10) << endl;
+    cout << "!(a == b) = " << !(a == b) << endl;
+
+    // Compound assignment
+    int s = 10;
+    s += 5;  s *= 2;
+    cout << "\ns after += 5 and *= 2: " << s << endl;
+
+    // Bitwise
+    unsigned int p = 6, q = 3;                      // 110 and 011
+    cout << "\np & q = " << (p & q) << endl;        // 2
+    cout << "p | q = " << (p | q) << endl;          // 7
+    cout << "p ^ q = " << (p ^ q) << endl;          // 5
+    cout << "p << 1 = " << (p << 1) << endl;        // 12
+    cout << "p >> 1 = " << (p >> 1) << endl;        // 3
+
+    // Ternary operator
+    int larger = (a > b) ? a : b;
+    cout << "\nlarger = " << larger << endl;
+
+    // Typecasting
+    int total = 17, count = 5;
+    double wrong = total / count;                             // 3  (int division first)
+    double right = static_cast<double>(total) / count;        // 3.4
+    cout << "\nWithout cast: " << wrong << endl;
+    cout << "With static_cast: " << right << endl;
+
+    double d = 9.99;
+    int truncated = static_cast<int>(d);                      // fractional part lost
+    cout << "static_cast<int>(9.99) = " << truncated << endl;
+
+    char ch = 'A';
+    cout << "char 'A' as int = " << static_cast<int>(ch) << endl;
+    cout << "65 as char = " << static_cast<char>(65) << endl;
+    return 0;
+}
 
