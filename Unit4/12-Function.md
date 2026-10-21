@@ -1870,11 +1870,8 @@ int main() { tick(); tick(); tick(); }
 
 ---
 
-### ⏮️ Previous Lesson
-👈 **Lesson 11: Control Structures in C++**
 
-### ⏭️ Next Lesson
-👉 **Lesson 13: Arrays in C++**
+
 
 ---
 
