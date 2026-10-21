@@ -1,214 +1,606 @@
-# Overview of C++
+# 📘 Lesson 1: Overview of C++
 
-**Unit 1: C++ Basics** | Lecture note 1
+> **Goal of this lesson:** Understand what C++ is, where it came from, why it is still so popular, how a C++ program runs, and write your very first program.
 
 ---
 
-## 1. What is C++?
+## 📑 Table of Contents
 
-C++ is a general-purpose, compiled, statically typed programming language that supports **procedural**, **object-oriented**, and **generic** programming. It gives programmers high-level abstractions (classes, templates, a rich standard library) while keeping low-level control over memory and hardware.
+1. [What is Programming?](#1-what-is-programming)
+2. [What is C++?](#2-what-is-c)
+3. [History of C++](#3-history-of-c)
+4. [Key Features of C++](#4-key-features-of-c)
+5. [Where is C++ Used?](#5-where-is-c-used)
+6. [C vs C++](#6-c-vs-c)
+7. [How a C++ Program Runs](#7-how-a-c-program-runs)
+8. [Setting Up Your Environment](#8-setting-up-your-environment)
+9. [Your First C++ Program](#9-your-first-c-program)
+10. [Line-by-Line Explanation](#10-line-by-line-explanation)
+11. [Common Beginner Mistakes](#11-common-beginner-mistakes)
+12. [Practice Exercises](#12-practice-exercises)
+13. [Quick Quiz](#13-quick-quiz)
+14. [Summary](#14-summary)
 
-## 2. History
+---
+
+## 1. What is Programming?
+
+A computer is very fast but has **no intelligence of its own**. It only does exactly what it is told.
+
+**Programming** is the process of writing step-by-step instructions that tell the computer what to do.
+
+🍳 **Analogy:** A program is like a **recipe**.
+- The recipe (program) lists steps in order.
+- The cook (computer) follows the steps exactly.
+- If the recipe has a mistake, the dish (output) will be wrong — the cook won't fix it for you!
+
+A **programming language** is a language that both humans can write and computers can (after translation) understand. C++ is one such language.
+
+---
+
+## 2. What is C++?
+
+**C++** (pronounced *"C plus plus"*) is a **general-purpose, compiled, high-performance programming language**.
+
+Let's break that down:
+
+| Term | Meaning |
+|------|---------|
+| **General-purpose** | Can be used to build almost anything — games, apps, operating systems, embedded devices |
+| **Compiled** | Your code is translated into machine code *before* it runs, which makes it very fast |
+| **High-performance** | Gives you close control over memory and hardware |
+| **Multi-paradigm** | Supports procedural, object-oriented, and generic programming styles |
+
+💡 **Why the name "C++"?**
+In C and C++, `++` is the **increment operator**, which means "add one". So **C++ = "one step beyond C"**. It's a programmer's joke! 😄
+
+---
+
+## 3. History of C++
 
 | Year | Event |
-|---|---|
-| 1972 | Dennis Ritchie develops **C** at Bell Labs |
-| 1979 | Bjarne Stroustrup begins "**C with Classes**" at Bell Labs |
-| 1983 | Renamed **C++** (the `++` is C's increment operator: "C, incremented") |
-| 1985 | First commercial release; *The C++ Programming Language* published |
-| 1998 | First ISO standard: **C++98** |
-| 2011 | **C++11**, a major modernisation (`auto`, lambdas, move semantics, smart pointers) |
-| 2014 / 2017 | **C++14**, **C++17** (refinements, `std::optional`, structured bindings) |
-| 2020 | **C++20** (concepts, ranges, coroutines, modules) |
-| 2023 | **C++23** |
+|------|-------|
+| **1972** | Dennis Ritchie creates the **C** language at Bell Labs |
+| **1979** | **Bjarne Stroustrup** starts working on *"C with Classes"* at Bell Labs |
+| **1983** | The language is renamed **C++** |
+| **1985** | First commercial release and the book *The C++ Programming Language* |
+| **1998** | **C++98** — first official ISO standard |
+| **2003** | **C++03** — bug-fix update |
+| **2011** | **C++11** — huge update (`auto`, lambdas, smart pointers). Called **"Modern C++"** |
+| **2014** | **C++14** — small improvements |
+| **2017** | **C++17** — `std::optional`, structured bindings, filesystem library |
+| **2020** | **C++20** — concepts, ranges, modules, coroutines |
+| **2023** | **C++23** — further library improvements (e.g. `std::print`) |
+| **2026** | **C++26** — the next standard, being finalized |
 
-This course uses **C++17**.
+👨‍💻 **Bjarne Stroustrup** wanted a language that had:
+- the **speed and low-level power of C**, plus
+- the **organization of object-oriented programming** (ideas from a language called Simula).
 
-## 3. Features of C++
+📌 **Key takeaway:** C++ keeps evolving. A new standard comes out roughly **every 3 years**. In this course we will write **Modern C++ (C++17/C++20 style)**.
 
-| Feature | Explanation |
-|---|---|
-| Object-oriented | Classes, objects, inheritance, polymorphism, encapsulation, abstraction |
-| Compiled | Source is translated to native machine code, so programs run fast |
-| Statically typed | Type errors are caught at compile time |
-| Portable | Standard C++ compiles on Windows, Linux, macOS, and embedded systems |
-| Rich library | Standard Template Library (containers, algorithms, iterators) |
-| Memory control | Pointers, `new`/`delete`, and direct hardware access |
-| Multi-paradigm | Procedural, object-oriented, generic, and functional styles |
-| Extensible | Operator overloading and user-defined types |
+---
 
-## 4. Object-Oriented Concepts
+## 4. Key Features of C++
 
-1. **Object:** an entity with state (data) and behaviour (functions).
-2. **Class:** a blueprint from which objects are created.
-3. **Encapsulation:** bundling data and the functions that operate on it.
-4. **Data hiding:** restricting direct access to internal data (`private`).
-5. **Abstraction:** exposing essential features, hiding implementation detail.
-6. **Inheritance:** a new class reuses and extends an existing class.
-7. **Polymorphism:** one interface, many behaviours (overloading, virtual functions).
+### ⚡ 1. Fast and Efficient
+C++ compiles directly to machine code, so programs run very fast. This is why it is used in games and real-time systems.
 
-## 5. C vs C++
+### 🧱 2. Object-Oriented Programming (OOP)
+C++ lets you model real-world things as **objects** using **classes**.
+Main OOP concepts (we will study them later):
+- **Encapsulation** – bundling data and functions together
+- **Abstraction** – hiding unnecessary details
+- **Inheritance** – reusing code from an existing class
+- **Polymorphism** – one interface, many forms
 
-| Aspect | C | C++ |
-|---|---|---|
-| Paradigm | Procedural | Procedural + object-oriented + generic |
-| Data and functions | Separate | Combined in classes |
-| Data hiding | Not supported | Supported (`private`, `protected`) |
-| Function overloading | No | Yes |
-| Operator overloading | No | Yes |
-| References | No | Yes |
-| Namespaces | No | Yes |
-| Memory allocation | `malloc` / `free` | `new` / `delete` |
-| I/O | `printf` / `scanf` | `cout` / `cin` |
-| Exception handling | No | Yes (`try`, `catch`, `throw`) |
+### 🔧 3. Low-Level Memory Control
+You can directly work with memory using **pointers**. This is powerful but must be used carefully.
 
-## 6. Applications of C++
+### 📚 4. Rich Standard Library (STL)
+The **Standard Template Library** gives ready-made tools:
+- Containers: `vector`, `map`, `set`, `string`
+- Algorithms: `sort`, `find`, `reverse`
+- Input/output: `cin`, `cout`
 
-Operating systems and device drivers, game engines, web browsers, databases, compilers, embedded and real-time systems, financial trading systems, scientific computing, and graphics or CAD software.
+### 🔄 5. Portable
+The same C++ code can be compiled on Windows, Linux, and macOS.
 
-## 7. How a C++ Program Is Built
+### 🧬 6. Compatible with C
+Most C code works in C++, so C++ can use decades of existing C libraries.
+
+### 🧩 7. Multi-Paradigm
+You can write code in different styles:
+- **Procedural** (step-by-step functions, like C)
+- **Object-Oriented** (classes and objects)
+- **Generic** (templates that work with any data type)
+
+---
+
+## 5. Where is C++ Used?
+
+| Field | Examples |
+|-------|----------|
+| 🎮 **Game Development** | Unreal Engine, many AAA games |
+| 💻 **Operating Systems** | Parts of Windows, macOS, and Linux tools |
+| 🌐 **Web Browsers** | Google Chrome, Mozilla Firefox |
+| 🗄️ **Databases** | MySQL, MongoDB |
+| 🤖 **AI / Machine Learning** | Core engines of TensorFlow and PyTorch |
+| 🚗 **Embedded Systems** | Cars, medical devices, IoT devices |
+| 💹 **Finance** | High-frequency trading systems |
+| 🎨 **Graphics Software** | Adobe Photoshop, Blender |
+| 🏆 **Competitive Programming** | Most popular language on Codeforces, CodeChef |
+
+💡 **Fun fact:** Even when you write Python code for AI, the heavy calculations often run in C++ underneath!
+
+---
+
+## 6. C vs C++
+
+| Feature | C | C++ |
+|---------|---|-----|
+| Programming style | Procedural only | Procedural + OOP + Generic |
+| Classes & Objects | ❌ No | ✅ Yes |
+| Function overloading | ❌ No | ✅ Yes |
+| Input / Output | `printf()`, `scanf()` | `cout`, `cin` (also supports C style) |
+| Memory allocation | `malloc()`, `free()` | `new`, `delete` (and smart pointers) |
+| Namespaces | ❌ No | ✅ Yes |
+| Exception handling | ❌ No | ✅ `try`, `catch`, `throw` |
+| Standard library | Small | Large (STL) |
+| File extension | `.c` | `.cpp` |
+
+📌 **Remember:** C++ is *almost* a superset of C — it includes most of C and adds a lot more.
+
+---
+
+## 7. How a C++ Program Runs
+
+Computers only understand **machine code (0s and 1s)**. Your C++ code must be translated before it can run.
 
 ```
-source.cpp --> Preprocessor --> Compiler --> Assembler --> Linker --> executable
-               (#include,       (to assembly)  (to object     (joins object
-                #define)                        code .o)       files + libraries)
+ ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+ │ Source Code  │ ──▶ │ Preprocessor │ ──▶ │   Compiler   │ ──▶ │    Linker    │ ──▶ │  Executable  │
+ │  hello.cpp   │     │ handles #    │     │ → object file│     │ joins libs   │     │ hello.exe /  │
+ │              │     │ lines        │     │  (hello.o)   │     │              │     │ ./hello      │
+ └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
 ```
 
-On the command line:
+| Step | What happens |
+|------|-------------|
+| **1. Writing** | You write code in a `.cpp` file |
+| **2. Preprocessing** | Lines starting with `#` (like `#include`) are processed — header files are copied in |
+| **3. Compiling** | Code is checked for errors and converted into machine code (object file) |
+| **4. Linking** | Your object file is joined with library code (like the code for `cout`) |
+| **5. Execution** | The final executable program runs |
 
-```bash
-g++ -std=c++17 -Wall -Wextra -o hello hello.cpp
-./hello
-```
+### Compiler vs Interpreter
 
-## 8. Your First Program
+| Compiler (C++) | Interpreter (Python) |
+|----------------|----------------------|
+| Translates the **whole program** before running | Translates **line by line** while running |
+| Faster execution | Slower execution |
+| Errors shown before the program runs | Errors shown when that line is reached |
 
-```cpp
-#include <iostream>             // input/output library
-using namespace std;            // use the standard namespace
+---
 
-int main() {                    // execution starts here
-    cout << "Hello, C++!" << endl;
-    return 0;                   // 0 means success
-}
-```
+## 8. Setting Up Your Environment
 
-Full version: [`examples/hello.cpp`](examples/hello.cpp)
+You need two things:
+1. **A compiler** — translates your code
+2. **An editor / IDE** — where you write code
 
-## 9. Setting Up and Running C++ Programs
+### Popular Compilers
+| Compiler | Platform |
+|----------|----------|
+| **GCC (g++)** | Linux, Windows (via MinGW), macOS |
+| **Clang** | macOS, Linux, Windows |
+| **MSVC** | Windows (comes with Visual Studio) |
 
-A C++ program needs a **compiler** (turns code into an executable) and an **editor or IDE** (where you write code). Install the compiler first, then check it:
+### Popular Editors / IDEs
+- **VS Code** (with the C/C++ extension) — lightweight, popular
+- **Code::Blocks** — beginner-friendly, compiler included
+- **Visual Studio** — full-featured IDE for Windows
+- **CLion** — professional IDE
 
+### Online Compilers (no installation needed)
+- [OnlineGDB](https://www.onlinegdb.com/online_c++_compiler)
+- [Programiz C++ Compiler](https://www.programiz.com/cpp-programming/online-compiler/)
+- [Compiler Explorer](https://godbolt.org/)
+
+### Check if g++ is installed
+Open a terminal and type:
 ```bash
 g++ --version
 ```
 
-### 9.1 macOS
+---
 
-**Step 1: Install the compiler.** Open *Terminal* and run:
+## 9. Your First C++ Program
+
+Create a file named **`hello.cpp`**:
+
+```cpp
+// My first C++ program
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
+```
+
+### Compile and Run (using g++)
 
 ```bash
-xcode-select --install
+g++ hello.cpp -o hello      # Compile
+./hello                     # Run on Linux / macOS
+hello.exe                   # Run on Windows
 ```
 
-This installs Apple's Command Line Tools, which include `clang++`. On a Mac, the command `g++` is simply a shortcut to Apple's `clang++`, so `g++ --version` will mention "Apple clang". That is normal, and it compiles standard C++ correctly. (Optional: `brew install gcc` installs the real GNU compiler as `g++-14` or similar, using [Homebrew](https://brew.sh).)
-
-**Step 2: Write the program.** Save the code as `hello.cpp` (for example in a folder `~/cpp`).
-
-**Step 3: Compile and run.**
-
-```bash
-cd ~/cpp
-g++ -std=c++17 -Wall -Wextra -o hello hello.cpp
-./hello
+### Output
+```
+Hello, World!
 ```
 
-### 9.2 Windows
+🎉 **Congratulations! You just wrote your first C++ program!**
 
-There are three common ways. Pick **one**.
+---
 
-| Option | Best for | Install |
-|---|---|---|
-| **MinGW-w64 (GCC) via MSYS2** | Same commands as Linux/Mac | Install [MSYS2](https://www.msys2.org), open the *MSYS2 UCRT64* terminal, run `pacman -S mingw-w64-ucrt-x86_64-gcc`, then add `C:\msys64\ucrt64\bin` to the system **PATH** |
-| **Visual Studio Community** (MSVC) | Full IDE with debugger | Install [Visual Studio Community](https://visualstudio.microsoft.com), choose the **Desktop development with C++** workload |
-| **WSL (Windows Subsystem for Linux)** | Real Linux environment | In PowerShell (as administrator): `wsl --install`, then in Ubuntu run `sudo apt install build-essential` |
+## 10. Line-by-Line Explanation
 
-**Compile and run with MinGW (PowerShell or Command Prompt):**
+```cpp
+// My first C++ program
+```
+➡️ A **comment**. The compiler ignores it. Comments are notes for humans.
+- `//` → single-line comment
+- `/* ... */` → multi-line comment
 
-```powershell
-cd C:\cpp
-g++ -std=c++17 -Wall -Wextra -o hello.exe hello.cpp
-.\hello.exe
+```cpp
+#include <iostream>
+```
+➡️ A **preprocessor directive**. It includes the **iostream** (input-output stream) library so we can use `cout` and `cin`.
+
+```cpp
+int main() {
+```
+➡️ The **main function**. Every C++ program **starts running from `main()`**.
+- `int` means `main` returns an integer to the operating system.
+- `{` marks the start of the function body.
+
+```cpp
+    std::cout << "Hello, World!" << std::endl;
+```
+➡️ Prints text to the screen.
+- `std` → the **standard namespace** (where library names live)
+- `::` → **scope resolution operator** ("look inside std")
+- `cout` → **character output** (the screen)
+- `<<` → **insertion operator** (sends data to `cout`)
+- `"Hello, World!"` → a **string** (text in double quotes)
+- `endl` → moves to a **new line**
+- `;` → every statement **must end with a semicolon**
+
+```cpp
+    return 0;
+```
+➡️ Ends `main()` and tells the operating system **"the program finished successfully"**. (A non-zero value usually means an error.)
+
+```cpp
+}
+```
+➡️ End of the `main` function.
+
+### 🔁 Same Program Using `using namespace std;`
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
 ```
 
-**With Visual Studio's compiler**, open *Developer Command Prompt for VS* and run:
+Now we can write `cout` instead of `std::cout`.
 
-```powershell
-cl /EHsc /std:c++17 hello.cpp
-hello.exe
+⚠️ **Note:** `using namespace std;` is fine for small learning programs, but in large projects professionals prefer writing `std::` to avoid name conflicts.
+
+### 💡 `endl` vs `"\n"`
+
+```cpp
+cout << "Line 1" << endl;   // New line + flushes output
+cout << "Line 2\n";         // New line only (slightly faster)
 ```
 
-Or simply create a *Console App* project in Visual Studio and press **Ctrl + F5** to run.
+---
 
-### 9.3 Linux (for reference)
+## 11. Common Beginner Mistakes
 
-```bash
-sudo apt install build-essential       # Ubuntu / Debian
-g++ -std=c++17 -o hello hello.cpp && ./hello
+| ❌ Mistake | ✅ Correct | Why |
+|-----------|-----------|-----|
+| `cout << "Hi"` | `cout << "Hi";` | Every statement needs a semicolon |
+| `#include <iostream.h>` | `#include <iostream>` | `.h` version is old and not standard |
+| `Main()` or `MAIN()` | `main()` | C++ is **case-sensitive** |
+| `cout >> "Hi";` | `cout << "Hi";` | Output uses `<<`, input uses `>>` |
+| `cout << 'Hello';` | `cout << "Hello";` | Text (strings) uses **double quotes** |
+| `void main()` | `int main()` | Standard C++ requires `main` to return `int` |
+| Forgetting `{` or `}` | Match every bracket | Unmatched braces cause compile errors |
+| Saving file as `hello.txt` | `hello.cpp` | Use the `.cpp` extension |
+
+### Example of an Error Message
+
+```cpp
+#include <iostream>
+int main() {
+    std::cout << "Hello"
+    return 0;
+}
 ```
 
-### 9.4 Command Summary
+The compiler says something like:
+```
+error: expected ';' before 'return'
+```
 
-| Task | macOS / Linux | Windows (MinGW) |
-|---|---|---|
-| Compile | `g++ -std=c++17 -o hello hello.cpp` | `g++ -std=c++17 -o hello.exe hello.cpp` |
-| Run | `./hello` | `.\hello.exe` |
-| Compile with warnings | add `-Wall -Wextra` | add `-Wall -Wextra` |
-| Several source files | `g++ main.cpp util.cpp -o app` | same |
+💡 **Tip:** Read error messages carefully — they usually tell you the **line number** and **what is wrong**. Fix the **first error first**, because one mistake can cause many errors.
 
-The `Makefile` in this repository (`make`, `make run F=...`) works on macOS, Linux, and WSL. On plain Windows, compile files individually as shown above.
+---
 
-### 9.5 Tools: Editors and IDEs
+## 12. Practice Exercises
 
-| Tool | Platform | Notes |
-|---|---|---|
-| **Visual Studio Code** | Windows, macOS, Linux | Free, lightweight; install the *C/C++* extension by Microsoft (and optionally *Code Runner* to run with one click) |
-| **Visual Studio Community** | Windows | Free for students; best debugger on Windows |
-| **Xcode** | macOS | Apple's IDE; create a *Command Line Tool* project |
-| **CLion** | All | JetBrains IDE (CMake based); free for students |
-| **Code::Blocks** | Windows, Linux, macOS | Simple, beginner friendly; download the version bundled with MinGW |
-| **Dev-C++** | Windows | Very light; good for small programs |
-| **Online compilers** | Any browser | [OnlineGDB](https://www.onlinegdb.com), [Compiler Explorer](https://godbolt.org), [Programiz](https://www.programiz.com/cpp-programming/online-compiler); no installation needed |
+### 🟢 Easy
 
-**Recommended for this course:** VS Code + `g++` (MSYS2 on Windows, Command Line Tools on macOS), because every command in this repository then works the same way on all computers.
+**Exercise 1:** Write a program that prints your name.
 
-### 9.6 Common Problems
+**Exercise 2:** Print the following on separate lines:
+```
+Welcome
+to
+C++
+```
 
-| Message / Symptom | Cause and fix |
-|---|---|
-| `'g++' is not recognized` (Windows) | Compiler folder is not on **PATH**; add it and reopen the terminal |
-| `command not found: g++` (macOS) | Run `xcode-select --install` |
-| Console window closes immediately (Windows IDE) | Run from a terminal, or use **Ctrl + F5** in Visual Studio |
-| `error: 'cout' was not declared` | Missing `#include <iostream>` or `using namespace std;` |
-| `undefined reference to main` | The file has no `main()` function, or you compiled the wrong file |
-| Old language features unavailable | Add `-std=c++17` to the compile command |
+**Exercise 3:** Print this pattern:
+```
+*
+**
+***
+****
+```
 
-## Summary
+### 🟡 Medium
 
-- C++ grew out of C, adding classes and later templates, exceptions, and a large standard library.
-- It is compiled, statically typed, and supports several programming paradigms.
-- Its object-oriented features are encapsulation, abstraction, inheritance, and polymorphism.
-- Programs go through preprocessing, compilation, assembly, and linking.
-- Install a compiler (`clang++`/`g++` on macOS, MinGW or Visual Studio on Windows), then compile with `g++ -std=c++17` and run the executable; VS Code is a good free editor for all platforms.
+**Exercise 4:** Print your personal details in this format:
+```
+Name    : Rahul Sharma
+Course  : C++ Programming
+College : ABC Institute
+```
 
-## Review Questions
+**Exercise 5:** The program below has **4 errors**. Find and fix them.
+```cpp
+#include <iostream.h>
+using namespace std
 
-1. Who developed C++, and why was it first called "C with Classes"?
-2. List five features of C++.
-3. Differentiate between C and C++ in at least five points.
-4. Explain the stages of compilation of a C++ program.
-5. Name and briefly describe the four main principles of object-oriented programming.
-6. Write a program that prints "Welcome to C++".
-7. List the steps to install a C++ compiler and run a program on your own computer (macOS or Windows).
-8. Name three IDEs or editors for C++ and one advantage of each.
-9. What does the command `g++ -std=c++17 -Wall -o hello hello.cpp` do? Explain each part.
+int Main() {
+    cout >> "Learning C++"
+    return 0;
+}
+```
+
+### 🔴 Challenge
+
+**Exercise 6:** Print a box using `cout`:
+```
++----------+
+|  C++ is  |
+|   FUN!   |
++----------+
+```
+
+**Exercise 7:** Use **one single `cout` statement** to print 3 lines of text. *(Hint: use `\n`)*
+
+---
+
+### ✅ Solutions
+
+<details>
+<summary>Click to view Exercise 1 solution</summary>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "My name is Rahul" << endl;
+    return 0;
+}
+```
+</details>
+
+<details>
+<summary>Click to view Exercise 2 solution</summary>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Welcome" << endl;
+    cout << "to" << endl;
+    cout << "C++" << endl;
+    return 0;
+}
+```
+</details>
+
+<details>
+<summary>Click to view Exercise 3 solution</summary>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "*" << endl;
+    cout << "**" << endl;
+    cout << "***" << endl;
+    cout << "****" << endl;
+    return 0;
+}
+```
+</details>
+
+<details>
+<summary>Click to view Exercise 4 solution</summary>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Name    : Rahul Sharma" << endl;
+    cout << "Course  : C++ Programming" << endl;
+    cout << "College : ABC Institute" << endl;
+    return 0;
+}
+```
+</details>
+
+<details>
+<summary>Click to view Exercise 5 solution</summary>
+
+**Errors:**
+1. `<iostream.h>` → should be `<iostream>`
+2. Missing `;` after `using namespace std`
+3. `Main` → should be `main` (case-sensitive)
+4. `>>` → should be `<<`, and missing `;` at the end
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Learning C++";
+    return 0;
+}
+```
+</details>
+
+<details>
+<summary>Click to view Exercise 6 solution</summary>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "+----------+" << endl;
+    cout << "|  C++ is  |" << endl;
+    cout << "|   FUN!   |" << endl;
+    cout << "+----------+" << endl;
+    return 0;
+}
+```
+</details>
+
+<details>
+<summary>Click to view Exercise 7 solution</summary>
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Line one\nLine two\nLine three\n";
+    return 0;
+}
+```
+</details>
+
+---
+
+## 13. Quick Quiz
+
+**Q1.** Who created C++?
+- a) Dennis Ritchie
+- b) Bjarne Stroustrup
+- c) James Gosling
+- d) Guido van Rossum
+
+**Q2.** What was C++ originally called?
+- a) C Plus
+- b) New C
+- c) C with Classes
+- d) Object C
+
+**Q3.** From which function does every C++ program start executing?
+- a) `start()`
+- b) `begin()`
+- c) `main()`
+- d) `run()`
+
+**Q4.** Which header file is needed for `cout`?
+- a) `<stdio.h>`
+- b) `<iostream>`
+- c) `<conio.h>`
+- d) `<string>`
+
+**Q5.** Which symbol ends a statement in C++?
+- a) `.`
+- b) `:`
+- c) `;`
+- d) `,`
+
+**Q6.** What does `return 0;` in `main()` indicate?
+- a) The program has an error
+- b) The program ended successfully
+- c) The program will restart
+- d) Nothing
+
+**Q7.** Which stage joins your code with library code?
+- a) Preprocessor
+- b) Compiler
+- c) Linker
+- d) Editor
+
+**Q8.** C++ is a ______ language.
+- a) Interpreted
+- b) Compiled
+- c) Markup
+- d) Query
+
+<details>
+<summary>✅ Click to view answers</summary>
+
+| Q | Answer |
+|---|--------|
+| 1 | b) Bjarne Stroustrup |
+| 2 | c) C with Classes |
+| 3 | c) `main()` |
+| 4 | b) `<iostream>` |
+| 5 | c) `;` |
+| 6 | b) The program ended successfully |
+| 7 | c) Linker |
+| 8 | b) Compiled |
+
+</details>
+
+---
+
+## 14. Summary
+
+- ✅ **C++** is a fast, compiled, general-purpose, multi-paradigm language.
+- ✅ Created by **Bjarne Stroustrup** in **1979** as *"C with Classes"*; renamed **C++** in **1983**.
+- ✅ **C++11** started the era of **Modern C++**; new standards arrive about every 3 years.
+- ✅ Used in **games, OS, browsers, databases, AI engines, embedded systems**, and more.
+- ✅ Program flow: **Source code → Preprocessor → Compiler → Linker → Executable**.
+- ✅ Every program starts from **`main()`**.
+- ✅ `#include <iostream>` gives us **`cout`** (output) and **`cin`** (input).
+- ✅ Every statement ends with a **semicolon `;`**.
+- ✅ C++ is **case-sensitive**.
+
+---
+
+---
+
+> 📝 *Tip for students: Type every example yourself instead of copy-pasting. Your fingers learn syntax faster than your eyes!*
