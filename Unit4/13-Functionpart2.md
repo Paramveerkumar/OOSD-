@@ -1933,8 +1933,6 @@ int main() {
 ### ⏮️ Previous Lesson
 👈 **Lesson 12 (Part 1): Functions in C++** (`Function-in-CPP.md`)
 
-### ⏭️ Next Lesson
-👉 **Lesson 13: Arrays in C++**
 
 ---
 
