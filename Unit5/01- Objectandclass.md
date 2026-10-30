@@ -1,5 +1,3 @@
-# 📘 Lesson 13: Objects and Classes in C++
-
 > **Goal of this lesson:** Learn Object-Oriented Programming (OOP) in C++ — create classes and objects, protect data with `private` and `public`, share data with `static` members, set up and clean up objects with constructors and destructors, make your own types work with operators like `+` and `<<`, and convert between classes and built-in types.
 
 > 💡 *Diagrams use **Mermaid**, which GitHub renders automatically.*
